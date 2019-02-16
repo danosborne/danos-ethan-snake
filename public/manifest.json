@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Snake Game Clone",
+  "name": "Snake Game Clone",
   "icons": [
     {
       "src": "favicon.ico",

@@ -93,7 +93,8 @@ class App extends Component {
       currentHeadDirection: LEFT,
       requestedHeadDirection: LEFT,
       fruit: randomFruit(segments),
-      gameOver: false
+      gameOver: false,
+      firstPlay: true
     };
   }
 
@@ -103,7 +104,7 @@ class App extends Component {
   }
 
   start() {
-    this.setState({tickHandle: setInterval(() => this.tick(), 100)});
+    this.setState({firstPlay: false, tickHandle: setInterval(() => this.tick(), 100)});
   }
 
   stop() {
@@ -112,7 +113,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.start();
     document.onkeydown = (e) => {
       const dir = directionFromKeyCode(e.code);
       if (dir && dir !== DISALLOWED[this.state.currentHeadDirection]) {
@@ -201,13 +201,13 @@ class App extends Component {
     return (
       <div className="app">
         <div className="controls">
-          {/*<div className="current-direction">{this.state.currentHeadDirection}</div>
-          <div className="requested-direction">{this.state.requestedHeadDirection}</div>*/}
           <div style={{width: '30%'}}>
             <div className="control">
-              <button onClick={() => this.state.tickHandle ? this.stop() : this.start()}>
-                {this.state.tickHandle ? 'Pause' : 'Unpause'}
-              </button>
+            {this.state.firstPlay
+              ? <button onClick={() => this.start()}>Start</button>
+              : <button onClick={() => this.state.tickHandle ? this.stop() : this.start()}>
+                  {this.state.tickHandle ? 'Pause' : 'Unpause'}
+                </button>}
             </div>
           </div>
           <div className="score">Your score is: {this.state.segments.length - 4}</div>
