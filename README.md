@@ -1,7 +1,14 @@
-Classic snake game clone.
+## Classic snake game clone.
 
-- `yarn start` then visit localhost:3000 in a browser
+### Running instructions
+- On a Mac...
+- `git clone ...`
+- `brew install node@10`
+- `yarn`, wait while it downloads...
+- `yarn start`
+- Visit http://localhost:3000 in a browser
 
+### About
 - I pair-programmed this in 90 mins with my 7 year old.
 - Score is the number of segments in your snake minus the 4 you started with.
 - Eating fruit grows your snake by 2 segments (because the arena is huge).
@@ -10,4 +17,5 @@ Classic snake game clone.
 - Keys are arrow keys. You can't turn back on yourself, obviously.
 - You can pause / unpause the game with a button on screen.
 
+### Warning
 There may be bugs...
